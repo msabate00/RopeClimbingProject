@@ -6,6 +6,7 @@ public class GrapplingGun : MonoBehaviour
 {
     [Header("Scripts Ref:")]
     public GrappleRope grappleRope;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [Header("Layers Settings:")]
     [SerializeField] private bool grappleToAll = false;
@@ -59,6 +60,10 @@ public class GrapplingGun : MonoBehaviour
 
     private void Update()
     {
+
+        //playerMovement.canMove = !m_springJoint2D.enabled;
+
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SetGrapplePoint();
@@ -87,9 +92,13 @@ public class GrapplingGun : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
+           
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
+            playerMovement.canMove = true;
+
+
         }
         else
         {
@@ -126,6 +135,7 @@ public class GrapplingGun : MonoBehaviour
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
+                    playerMovement.canMove = false;
                 }
             }
         }

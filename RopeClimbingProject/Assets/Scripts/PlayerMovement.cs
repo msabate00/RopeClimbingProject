@@ -70,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Transform _frontWallCheckPoint;
 	[SerializeField] private Transform _backWallCheckPoint;
 	[SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+
+	public bool canMove = true;
+
     #endregion
 
     #region LAYERS & TAGS
@@ -91,6 +94,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+
+		if (!canMove) return;
+
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
@@ -280,8 +286,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
-		//Handle Run
-		if (!IsDashing)
+
+        if (!canMove) return;
+
+        //Handle Run
+        if (!IsDashing)
 		{
 			if (IsWallJumping)
 				Run(Data.wallJumpRunLerp);

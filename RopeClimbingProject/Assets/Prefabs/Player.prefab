@@ -407,6 +407,7 @@ MonoBehaviour:
   _frontWallCheckPoint: {fileID: 5132614456216770976}
   _backWallCheckPoint: {fileID: 1924999268695227021}
   _wallCheckSize: {x: 0.5, y: 1}
+  canMove: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -553,7 +554,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3668798426429288970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -604,6 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleRope: {fileID: 7311360278855861555}
+  playerMovement: {fileID: 2391030721965629764}
   grappleToAll: 1
   grappableLayerNumber: 3
   m_camera: {fileID: 0}
@@ -618,8 +620,8 @@ MonoBehaviour:
   maxDistnace: 20
   launchToPoint: 1
   launchType: 1
-  launchSpeed: 1
-  autoConfigureDistance: 0
+  launchSpeed: 1.7
+  autoConfigureDistance: 1
   targetDistance: 3
   targetFrequncy: 1
   grapplePoint: {x: 0, y: 0}
